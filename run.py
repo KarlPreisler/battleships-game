@@ -1,3 +1,10 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+battleship_grid = []
+
+for i in range(0,5):
+    battleship_grid.append(["0"] * 5)
+
+def print_grid(battleship_grid):
+    for i in battleship_grid:
+        print(" ".join(i))
+
+print_grid(battleship_grid)

@@ -25,23 +25,24 @@ class Board:
        
         # Stores coordinates for ships on the board.
         self.ships = []
-       
- 
-    def print(self):
+    
+    def print_board(self):
+        """ Method for printing board """
         for row in self.board:
-            print(" ".join(row))
+            print("0".join(row))
  
-    def guess(self, x, y):
-        self.guesses.append((x, y))
-        self.board[x][y] = "X"
-        # "X" Indicates guesses
  
-        if (x, y) in self.ships:
-            self.board[x][y] = "*"
-            return "Hit"
-        else:
-            return "Miss"
-        # "*" indicates a hit
+def guess(self, x, y):
+    self.guesses.append((x, y))
+    self.board[x][y] = "X"
+    # "X" Indicates guesses
+ 
+    if (x, y) in self.ships:
+        self.board[x][y] = "*"
+        return "Hit"
+    else:
+        return "Miss"
+    # "*" indicates a hit
  
     def add_ships(self, x, y, type="computer"):
         if len(self.ships) >= self.num_ships:
@@ -65,12 +66,15 @@ def populate_board(board):
     """
     Populates board for round
     """
-    print(Board)
+    print(board.print_board())
+    
+    
     
    
 def play_game(computer_board, player_board):
-    print("Guess a row: ")
-    
+    print(f"{player_name}'s board\n")
+    x = print(int(input("Guess a row: ")))
+    y = print(int(input("Guess a column: ")))
  
 
 def make_guess(board):

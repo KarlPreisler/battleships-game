@@ -63,13 +63,18 @@ def validate_guess(board, ship_row, ship_column):
 
     if (ship_row, ship_column) in board.guesses:
         print("Error: Already guessed, pick new row and col!\n")
-        
+
         """
     elif (ship_row, ship_column) not in board.board:
         print("Error: Input must be number between 0-4!")
         """
     else:
         return True
+
+# Add Score counting function
+# add function for calculating winner
+# 
+
 
 
 def populate_board(board):

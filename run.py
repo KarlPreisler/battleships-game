@@ -1,13 +1,13 @@
 from random import randint
 
 
-# Board class adopted and modified from the CI's battleship tutorial
+# Basic structure imported and modified from CI PP3 Sample project.
 class Board:
 
     """
     Main board class. Sets board size, the number of ships,
-     the player's name and the board type (player board or computer).
-     Has methods for adding ships and guesses and printing the board
+    the player's name and the board type (player board or computer).
+    Has methods for adding ships and guesses and printing the board
     """
 
     def __init__(self, size, num_ships, name, type):
@@ -21,15 +21,15 @@ class Board:
         self.ships = []
 
     def print(self):
-        # prints board
+        """ Prints board with blank spaces """
         for row in self.board:
             print("  ".join(row))
 
     def guess(self, ship_row, ship_column):
-        # appends "X" at the chosen coordinates
+        """ Dislays X for guessed coordinates """
         self.board[ship_row][ship_column] = "X"
 
-        # appends "*" if chosen coordinates hits a target
+        # Display "*" if target is hit
         if (ship_row, ship_column) in self.ships:
             self.board[ship_row][ship_column] = "*"
             return "Hit"
@@ -37,18 +37,15 @@ class Board:
             return "Miss"
 
     def add_ship(self, ship_row, ship_column, type="computer"):
-        if len(self.ships) >= self.num_ships:
-            print("Error: you cannot add any more ships!")
-        else:
-            self.ships.append((ship_row, ship_column))
-            if self.type == "player":
-                self.board[ship_row][ship_column] = "@"
+        self.ships.append((ship_row, ship_column))
+        if self.type == "player":
+            self.board[ship_row][ship_column] = "@"
 
 
 def random_point(size):
 
     """
-    Helper function to return a random integer between o and size
+    Helper function to return a random integer between 0 and size
     """
     return randint(0, size - 1)
 
@@ -56,7 +53,7 @@ def random_point(size):
 def populate_board(board):
 
     """
-    Function to add ships to the board's ships list
+    Function to add ships to the ships list
     """
 
     ship_row = random_point(board.size)
@@ -67,7 +64,8 @@ def populate_board(board):
 def make_guess(board):
 
     """
-    Function to get validated user guess and append it to the guesses list
+    Function to get user guess and append it to guesses list,
+    if computer guess, it picks random row and col. 
     """
 
     while True:
@@ -144,20 +142,21 @@ def new_game():
     print(f"\nBoard Size is {size}. Number of Ships are {num_ships}")
     print("\nTop left corner is row: 0, col: 0")
     print("-" * 37)
-
-    # Get the player's name, if input is str
+    print("Legend:\n")
+    print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
+    # Get the player's name, validate that its a string.
     while True:
-        player_name = input('\nPlease enter your name: ').capitalize()
+        player_name = input('\nEnter your name: ').capitalize()
         if player_name.isalpha():
             break
         else:
-            print("Invalid entry: Please provide a valid name")
+            print("Error: Please provide a valid name")
 
-    # create class instances for computer and player
+    # Creates class instances for computer and player
     computer_board = Board(size, num_ships, "Computer", type="computer")
     player_board = Board(size, num_ships, player_name, type="player")
 
-    # Append ships to the board instances
+    # Populates boards and 
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)

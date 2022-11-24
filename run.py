@@ -3,13 +3,11 @@ from random import randint
 
 # Basic structure imported and modified from CI PP3 Sample project.
 class Board:
-
     """
     Main board class. Sets board size, the number of ships,
     the player's name and the board type (player board or computer).
     Has methods for adding ships and guesses and printing the board
     """
-
     def __init__(self, size, num_ships, name, type):
         self.size = size
         self.board = [
@@ -21,12 +19,12 @@ class Board:
         self.ships = []
 
     def print(self):
-        """ Prints board with blank spaces """
+        """ Method for printing board with blank spaces """
         for row in self.board:
             print("  ".join(row))
 
     def guess(self, ship_row, ship_column):
-        """ Dislays X for guessed coordinates """
+        """ Method to display "X" for coordinates that are already guessed. """
         self.board[ship_row][ship_column] = "X"
 
         # Display "*" if target is hit
@@ -37,13 +35,15 @@ class Board:
             return "Miss"
 
     def add_ship(self, ship_row, ship_column, type="computer"):
+        """ Method for adding ships to player and computer board
+        Mark ships as "@" on player board and hiding ships on computer board
+        """
         self.ships.append((ship_row, ship_column))
         if self.type == "player":
             self.board[ship_row][ship_column] = "@"
 
 
 def random_point(size):
-
     """
     Helper function to return a random integer between 0 and size
     """
@@ -51,7 +51,6 @@ def random_point(size):
 
 
 def populate_board(board):
-
     """
     Function to add ships to the ships list
     """
@@ -62,7 +61,6 @@ def populate_board(board):
 
 
 def make_guess(board):
-
     """
     Function to get user guess and append it to guesses list,
     if computer guess, it picks random row and col. 
@@ -70,7 +68,8 @@ def make_guess(board):
 
     while True:
         if board.type == "computer":
-            ship_row, ship_column = random_point(board.size), random_point(board.size)
+            ship_row, ship_column = random_point(
+                board.size), random_point(board.size)
             board.guesses.append((ship_row, ship_column))
             return ship_row, ship_column
             break
@@ -85,9 +84,8 @@ def make_guess(board):
 
 
 def print_board(computer_board, player_board):
-
     """
-    Prints the player's board and the computer's board
+    Function for printing the player and computer's board
     """
     print(f"\n{player_board.name}'s Board:")
     player_board.print()
@@ -98,29 +96,33 @@ def print_board(computer_board, player_board):
 
 
 def play_game(computer_board, player_board):
-
     """
-    Main game function. Takes in the board instances as arguement
-    and controls the game logic
+    Function for starting the game and controlling game logic.
+    Appends guesses to player and computer board and checks
+    if a guess is the same location as a ship, displaying
+    hit or miss message depending on result.
     """
 
     while True:
-        # Get the player's guess and populate computer's board
         ship_row, ship_column = make_guess(player_board)
         ship_row, ship_column = int(ship_row), int(ship_column)
+        # append players guess to board and display guess
         player_board.guesses.append((ship_row, ship_column))
         print(f"{player_board.name} guessed: {ship_row, ship_column}")
 
+        # Define if computer got a hit or miss on player's board 
         if computer_board.guess(ship_row, ship_column) == "Hit":
             print(f"{player_board.name} hit the target!")
 
         elif computer_board.guess(ship_row, ship_column) == "Miss":
             print(f"{player_board.name} missed the target")
 
-        # Get computer's guess and populate player's board
+        # Get computer's guess and dislay guess
         ship_row, ship_column = make_guess(computer_board)
         computer_board.guesses.append((ship_row, ship_column))
         print(f"Computer guessed: {ship_row, ship_column}")
+
+        # Define if player got a hit or miss on computer's board 
         if player_board.guess(int(ship_row), int(ship_column)) == "Hit":
             print("Computer hit the target!")
         elif player_board.guess(ship_row, ship_column) == "Miss":
@@ -128,7 +130,7 @@ def play_game(computer_board, player_board):
 
         print_board(computer_board, player_board)
 
-        
+
 def new_game():
     """
     Starts a new game. Sets the board size and number of ships
@@ -156,7 +158,7 @@ def new_game():
     computer_board = Board(size, num_ships, "Computer", type="computer")
     player_board = Board(size, num_ships, player_name, type="player")
 
-    # Populates boards and 
+    # Populates boards and adds ships, calls function for printing boards
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)

@@ -1,6 +1,6 @@
 from random import randint
 
-
+scores = {computer: 0 player: 0}
 # Basic structure imported and modified from CI PP3 Sample project.
 class Board:
     """
@@ -63,7 +63,8 @@ def populate_board(board):
 def make_guess(board):
     """
     Function to get user guess and append it to guesses list,
-    if computer guess, it picks random row and col. 
+    if computer guess, pick random coordinates and 
+    append to guess list
     """
 
     while True:

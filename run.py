@@ -55,14 +55,14 @@ def random_point(size):
 
 
 def validate_guess(board, ship_row, ship_column):
-    """ 
+    """
     Validate that players guess has not already been made
     and that it's inside the scope of the board
     """
     ship_row, ship_column = int(ship_row), int(ship_column)
 
     if (ship_row, ship_column) in board.guesses:
-        print("Error: Already guessed, pick new row and col!\n")
+        print("Error: Already guessed, pick new row or col!\n")
 
         """
     elif (ship_row, ship_column) not in board.board:
@@ -73,8 +73,7 @@ def validate_guess(board, ship_row, ship_column):
 
 # Add Score counting function
 # add function for calculating winner
-# 
-
+#
 
 
 def populate_board(board):

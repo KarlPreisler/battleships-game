@@ -3,6 +3,7 @@ from random import randint
 scores = {"computer": 0, "player": 0}
 # Create scores dictionary
 
+
 # Basic structure imported and modified from CI PP3 Sample project.
 class Board:
     """
@@ -37,7 +38,8 @@ class Board:
             return "Miss"
 
     def add_ship(self, ship_row, ship_column, type="computer"):
-        """ Method for adding ships to player and computer board
+        """ 
+        Method for adding ships to player and computer board
         Mark ships as "@" on player board and hiding ships on computer board
         """
         self.ships.append((ship_row, ship_column))
@@ -50,6 +52,17 @@ def random_point(size):
     Helper function to return a random integer between 0 and size
     """
     return randint(0, size - 1)
+
+
+def validate_guess(board, ship_row, ship_column):
+    """ 
+    Validate that players guess has not already been made 
+    and that it's inside the scope of the board
+    """
+    if (ship_row, ship_column) in board.guesses:
+        print("Error: Already guessed, pick new row and col!\n")
+    else:
+        return True
 
 
 def populate_board(board):
@@ -73,17 +86,19 @@ def make_guess(board):
         if board.type == "computer":
             ship_row, ship_column = random_point(
                 board.size), random_point(board.size)
-            board.guesses.append((ship_row, ship_column))
-            return ship_row, ship_column
-            break
+            if validate_guess(board, ship_row, ship_column):
+                board.guesses.append((ship_row, ship_column))
+                return ship_row, ship_column
+                break
 
         elif board.type == "player":
             ship_row = input("Guess a row: ")
             ship_column = input("Guess a column: ")
             print("-" * 37)
-            board.guesses.append((ship_row, ship_column))
-            return ship_row, ship_column
-            break
+            if validate_guess(board, ship_row, ship_column):
+                board.guesses.append((ship_row, ship_column))
+                return ship_row, ship_column
+                break
 
 
 def print_board(computer_board, player_board):

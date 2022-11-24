@@ -1,6 +1,8 @@
 from random import randint
 
-scores = {computer: 0 player: 0}
+scores = {"computer": 0, "player": 0}
+# Create scores dictionary
+
 # Basic structure imported and modified from CI PP3 Sample project.
 class Board:
     """
@@ -134,13 +136,16 @@ def play_game(computer_board, player_board):
 
 def new_game():
     """
-    Starts a new game. Sets the board size and number of ships
+    Starts a new game. Set scores to 0
+    Sets the board size and number of ships
     prints welcome message and asks for player name
     validates that name is string and initializes boards
     for computer and player.
     """
     size = 5
     num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
     print("\nWelcome to the Battleship Game!")
     print(f"\nBoard Size is {size}. Number of Ships are {num_ships}")
     print("\nTop left corner is row: 0, col: 0")

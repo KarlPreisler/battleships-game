@@ -1,3 +1,7 @@
+""" This file contains all code to play the battleships game
+against the computer in the terminal window
+""" 
+
 from random import randint
 
 scores = {"computer": 0, "player": 0}

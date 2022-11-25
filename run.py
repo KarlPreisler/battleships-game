@@ -14,6 +14,15 @@ class Board:
     Main board class. Sets board size, the number of ships,
     the player's name and the board type (player board or computer).
     Has methods for adding ships and guesses and printing the board
+
+    Attributes:
+    size = an integer representing the size of the board
+    num_ships = an integer representing the number of ships that 
+    will be created
+    name = takes string input from player or assigns computer name =
+    "computer"
+    type = a string indicating whether the type of player is computer or 
+    player
     """
     def __init__(self, size, num_ships, name, type):
         self.size = size
@@ -118,7 +127,7 @@ def make_guess(board):
                 break
 
 
-def print_board(computer_board, player_board):
+def display_boards(computer_board, player_board):
     """
     Function for printing the player and computer's board
     """
@@ -163,7 +172,7 @@ def play_game(computer_board, player_board):
         elif player_board.guess(ship_row, ship_column) == "Miss":
             print("Computer missed the target")
 
-        print_board(computer_board, player_board)
+        display_boards(computer_board, player_board)
 
 
 def new_game():
@@ -200,7 +209,7 @@ def new_game():
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)
-    print_board(computer_board, player_board)
+    display_boards(computer_board, player_board)
     play_game(computer_board, player_board)
 
 

@@ -38,7 +38,7 @@ class Board:
             return "Miss"
 
     def add_ship(self, ship_row, ship_column, type="computer"):
-        """ 
+        """
         Method for adding ships to player and computer board
         Mark ships as "@" on player board and hiding ships on computer board
         """
@@ -63,17 +63,19 @@ def validate_guess(board, ship_row, ship_column):
 
     if (ship_row, ship_column) in board.guesses:
         print("Error: Already guessed, pick new row or col!\n")
-
-        """
-    elif (ship_row, ship_column) not in board.board:
-        print("Error: Input must be number between 0-4!")
-        """
     else:
         return True
+    
+    try:
+        board.board[ship_row][ship_column] in board.board
+
+    except IndexError:
+        print("Error: Input must be a number between 0-4!")
+        return False
+
 
 # Add Score counting function
 # add function for calculating winner
-#
 
 
 def populate_board(board):
@@ -89,7 +91,7 @@ def populate_board(board):
 def make_guess(board):
     """
     Function to get user guess and append it to guesses list,
-    if computer guess, pick random coordinates and 
+    if computer guess, pick random coordinates and
     append to guess list
     """
 

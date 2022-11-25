@@ -59,20 +59,20 @@ def validate_guess(board, ship_row, ship_column):
     Validate that players guess has not already been made
     and that it's inside the scope of the board
     """
-    ship_row, ship_column = int(ship_row), int(ship_column)
-
+    
     if (ship_row, ship_column) in board.guesses:
         print("Error: Already guessed, pick new row or col!\n")
     else:
         return True
     
+    """
     try:
         board.board[ship_row][ship_column] in board.board
 
     except IndexError:
         print("Error: Input must be a number between 0-4!")
         return False
-
+    """
 
 # Add Score counting function
 # add function for calculating winner
@@ -80,7 +80,7 @@ def validate_guess(board, ship_row, ship_column):
 
 def populate_board(board):
     """
-    Function to add ships to the ships list
+    Function to add ships to board and append to ships list
     """
 
     ship_row = random_point(board.size)
@@ -141,7 +141,7 @@ def play_game(computer_board, player_board):
         player_board.guesses.append((ship_row, ship_column))
         print(f"{player_board.name} guessed: {ship_row, ship_column}")
 
-        # Define if computer got a hit or miss on player's board 
+        # Define if computer got a hit or miss on player's board
         if computer_board.guess(ship_row, ship_column) == "Hit":
             print(f"{player_board.name} hit the target!")
 
@@ -153,7 +153,7 @@ def play_game(computer_board, player_board):
         computer_board.guesses.append((ship_row, ship_column))
         print(f"Computer guessed: {ship_row, ship_column}")
 
-        # Define if player got a hit or miss on computer's board 
+        # Define if player got a hit or miss on computer's board
         if player_board.guess(int(ship_row), int(ship_column)) == "Hit":
             print("Computer hit the target!")
         elif player_board.guess(ship_row, ship_column) == "Miss":
@@ -180,7 +180,7 @@ def new_game():
     print("-" * 37)
     print("Legend:\n")
     print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
-    # Get the player's name, validate that its a string.
+    # Get the player's name, validate that user input is a string.
     while True:
         player_name = input('\nEnter your name: ').capitalize()
         if player_name.isalpha():
@@ -196,7 +196,6 @@ def new_game():
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)
-    print("-" * 37)
     print_board(computer_board, player_board)
     play_game(computer_board, player_board)
 

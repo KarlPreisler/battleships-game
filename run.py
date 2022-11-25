@@ -115,7 +115,6 @@ def make_guess(board):
             if validate_guess(board, ship_row, ship_column):
                 board.guesses.append((ship_row, ship_column))
                 return ship_row, ship_column
-                break
 
         elif board.type == "player":
             ship_row = input("Guess a row: ")
@@ -124,7 +123,6 @@ def make_guess(board):
             if validate_guess(board, ship_row, ship_column):
                 board.guesses.append((ship_row, ship_column))
                 return ship_row, ship_column
-                break
 
 
 def display_boards(computer_board, player_board):
@@ -196,10 +194,11 @@ def new_game():
     # Get the player's name, validate that user input is a string.
     while True:
         player_name = input('\nEnter your name: ').capitalize()
-        if player_name.isalpha():
+        if player_name.isalpha() and len(player_name) > 1 < 20:
             break
         else:
             print("Error: Please provide a valid name")
+            print("Provide any alphabetical combination between 1-20")
 
     # Creates class instances for computer and player
     computer_board = Board(size, num_ships, "Computer", type="computer")

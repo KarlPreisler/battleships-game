@@ -63,7 +63,6 @@ class Board:
         try:
             (int(ship_row) >= 0 and int(ship_row) < self.size)
         except ValueError:
-            print("Please enter a valid row number")
             return False
         return True
 
@@ -71,7 +70,6 @@ class Board:
         try:
             (int(ship_column) >= 0 and int(ship_column) < self.size)
         except ValueError:
-            print("Please enter a valid column number")
             return False
         return True
 

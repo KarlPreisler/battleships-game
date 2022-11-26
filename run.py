@@ -17,11 +17,11 @@ class Board:
 
     Attributes:
     size = an integer representing the size of the board
-    num_ships = an integer representing the number of ships that 
+    num_ships = an integer representing the number of ships that
     will be created
     name = takes string input from player or assigns computer name =
     "computer"
-    type = a string indicating whether the type of player is computer or 
+    type = a string indicating whether the type of player is computer or
     player
     """
     def __init__(self, size, num_ships, name, type):
@@ -58,6 +58,27 @@ class Board:
         self.ships.append((ship_row, ship_column))
         if self.type == "player":
             self.board[ship_row][ship_column] = "@"
+
+    def valid_row(self, ship_row):
+        """Given a row number, check whether it is a valid row on the board.
+
+        Args:
+            row_number: int - The integer value to check.
+        Returns:
+            bool: Whether the row_number provided is a valid row on the board
+        """
+
+        return (ship_row >= 0 and ship_row < self.size)
+
+    def valid_column(self, ship_column):
+        return (ship_column >= 0 and ship_column < self.size)
+
+    def point_empty(self, ship_row, ship_column):
+    
+        if (ship_row, ship_column) in self.guesses:
+            return False
+        else:
+            return True
 
 
 def random_point(size):

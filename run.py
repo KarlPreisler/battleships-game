@@ -1,6 +1,7 @@
-""" This file contains all code to play the battleships game
-against the computer in the terminal window
 """ 
+This file contains all code to play the battleships game
+against the computer in the terminal window.
+"""
 
 from random import randint
 
@@ -40,7 +41,9 @@ class Board:
             print("  ".join(row))
 
     def guess(self, ship_row, ship_column):
-        """ Method to display "X" for coordinates that are already guessed. """
+        """
+        Method to display "X" for coordinates that are already guessed
+        """
         self.board[ship_row][ship_column] = "X"
 
         # Display "*" if target is hit
@@ -60,21 +63,35 @@ class Board:
             self.board[ship_row][ship_column] = "@"
 
     def valid_row(self, ship_row):
+        """ Method for checking if given row number is a valid row
+        on the board. Validate that the users guess for row
+        is an integer between 0-4.
+        """
         try:
             (int(ship_row) >= 0 and int(ship_row) < self.size)
         except ValueError:
             return False
+        except IndexError:
+            return False
         return True
 
     def valid_column(self, ship_column):
+        """ Method for checking if given column number is a valid column
+        on the board. Validate that the users guess for column
+        is an integer between 0-4.
+        """
         try:
             (int(ship_column) >= 0 and int(ship_column) < self.size)
         except ValueError:
             return False
+        except IndexError:
+            return False
         return True
 
     def point_empty(self, ship_row, ship_column):
-
+        """ 
+        Given a column and row guess, check if already guessed before
+        """
         if (ship_row, ship_column) in self.guesses:
             return False
         else:
@@ -87,26 +104,6 @@ def random_point(size):
     """
     return randint(0, size - 1)
 
-
-#def validate_guess(board, ship_row, ship_column):
-    """
-    Validate that players guess has not already been made
-    and that it's inside the scope of the board
-    """
-    
-#    if (ship_row, ship_column) in board.guesses:
-#        print("Error: Already guessed, pick new row or col!\n")
-#    else:
-#        return True
-    
-    """
-    try:
-        board.board[ship_row][ship_column] in board.board
-
-    except IndexError:
-        print("Error: Input must be a number between 0-4!")
-        return False
-    """
 
 # Add Score counting function
 # add function for calculating winner

@@ -42,9 +42,15 @@ class Board:
 
     def guess(self, ship_row, ship_column):
         """
-        Method to display "X" for coordinates that are already guessed
+        Method to display "X" for coordinates that are already guessed.
+        If user guess is not a number between 0-4 it will display that the user
+        completely missed the grid.
         """
-        self.board[ship_row][ship_column] = "X"
+        # Will display message to user if IndexError occurs
+        try:
+            self.board[ship_row][ship_column] = "X"
+        except IndexError:
+            print("Your shot is way off! Next time choose number between 0-4")
 
         # Display "*" if target is hit
         if (ship_row, ship_column) in self.ships:
@@ -65,37 +71,37 @@ class Board:
     def valid_row(self, ship_row):
         """ Method for checking if given row number is a valid row
         on the board. Validate that the users guess for row
-        is an integer between 0-4.
+        is an integer.
         """
         try:
-            (int(ship_row) >= 0 and int(ship_row) < self.size)
-        except ValueError:
-            return False
+            (int(ship_row) >= 0 and int(ship_row) < 5)
         except IndexError:
+            return False
+        except ValueError:
             return False
         return True
 
     def valid_column(self, ship_column):
         """ Method for checking if given column number is a valid column
         on the board. Validate that the users guess for column
-        is an integer between 0-4.
+        is an integer.
         """
         try:
-            (int(ship_column) >= 0 and int(ship_column) < self.size)
-        except ValueError:
-            return False
+            (int(ship_column) >= 0 and int(ship_column) < 5)
+        # Return false if value or index error is raised
         except IndexError:
+            return False
+        except ValueError:
             return False
         return True
 
     def point_empty(self, ship_row, ship_column):
-        """ 
+        """
         Given a column and row guess, check if already guessed before
         """
         if (ship_row, ship_column) in self.guesses:
             return False
-        else:
-            return True
+        return True
 
 
 def random_point(size):
@@ -140,7 +146,7 @@ def make_guess(board):
             print("-" * 37)
 
             if (not board.valid_row(ship_row) or not board.valid_column(ship_column)):
-                print("Please enter a row/column number between 0 and 4.")
+                print("Error: No letters allowed! Enter a number between 0-4")
 
             elif board.point_empty(ship_row, ship_column):
                 board.guesses.append((ship_row, ship_column))
@@ -151,7 +157,7 @@ def make_guess(board):
 
 def display_boards(computer_board, player_board):
     """
-    Function for printing the player and computer's board
+    Function for printing boards in the terminal
     """
     print(f"\n{player_board.name}'s Board:")
     player_board.print()
@@ -215,7 +221,7 @@ def new_game():
     print("-" * 37)
     print("Legend:\n")
     print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
-    # Get the player's name, validate that user input is a string.
+    # Ask for users name, validate that input is a string between 1-20 letters.
     while True:
         player_name = input('\nEnter your name: ').capitalize()
         if player_name.isalpha() and len(player_name) > 1 < 20:

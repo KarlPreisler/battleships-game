@@ -60,21 +60,13 @@ class Board:
             self.board[ship_row][ship_column] = "@"
 
     def valid_row(self, ship_row):
-        """Given a row number, check whether it is a valid row on the board.
-
-        Args:
-            row_number: int - The integer value to check.
-        Returns:
-            bool: Whether the row_number provided is a valid row on the board
-        """
-
-        return (ship_row >= 0 and ship_row < self.size)
+        return (int(ship_row) >= 0 and int(ship_row) < self.size)
 
     def valid_column(self, ship_column):
-        return (ship_column >= 0 and ship_column < self.size)
+        return (int(ship_column) >= 0 and int(ship_column) < self.size)
 
     def point_empty(self, ship_row, ship_column):
-    
+
         if (ship_row, ship_column) in self.guesses:
             return False
         else:
@@ -88,16 +80,16 @@ def random_point(size):
     return randint(0, size - 1)
 
 
-def validate_guess(board, ship_row, ship_column):
+#def validate_guess(board, ship_row, ship_column):
     """
     Validate that players guess has not already been made
     and that it's inside the scope of the board
     """
     
-    if (ship_row, ship_column) in board.guesses:
-        print("Error: Already guessed, pick new row or col!\n")
-    else:
-        return True
+#    if (ship_row, ship_column) in board.guesses:
+#        print("Error: Already guessed, pick new row or col!\n")
+#    else:
+#        return True
     
     """
     try:
@@ -128,12 +120,12 @@ def make_guess(board):
     if computer guess, pick random coordinates and
     append to guess list
     """
-
     while True:
         if board.type == "computer":
             ship_row, ship_column = random_point(
                 board.size), random_point(board.size)
-            if validate_guess(board, ship_row, ship_column):
+
+            if board.point_empty(ship_row, ship_column):
                 board.guesses.append((ship_row, ship_column))
                 return ship_row, ship_column
 
@@ -141,9 +133,15 @@ def make_guess(board):
             ship_row = input("Guess a row: ")
             ship_column = input("Guess a column: ")
             print("-" * 37)
-            if validate_guess(board, ship_row, ship_column):
+
+            if (not board.valid_row(ship_row) or not board.valid_column(ship_column)):
+                print("Please enter a row/column number between 0 and 4.")
+
+            elif board.point_empty(ship_row, ship_column):
                 board.guesses.append((ship_row, ship_column))
                 return ship_row, ship_column
+            else:
+                print("Error: Already guessed, pick new row or col!\n")
 
 
 def display_boards(computer_board, player_board):

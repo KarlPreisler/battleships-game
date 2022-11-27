@@ -2,7 +2,7 @@
 This file contains all code to play the battleships game
 against the computer in the terminal window.
 """
-
+import sys
 from random import randint
 
 scores = {"computer": 0, "player": 0}
@@ -212,6 +212,13 @@ def play_game(computer_board, player_board):
 
         display_boards(computer_board, player_board)
         display_scores(player_board)
+
+        resume_option = input('Press "Q" to quit the game, "R" to restart \
+the game or any other button to continue to the next round\n')
+        if resume_option == "Q":
+            sys.exit("Quitting game")
+        elif resume_option == "R":
+            new_game()
 
 
 def new_game():

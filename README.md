@@ -3,17 +3,17 @@ The Battleship Game is a game that runs in the Python terminal window, which run
 Users can practice their Battleships skills against a computer.
 
 ## How to play
-The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedi](https://en.wikipedia.org/wiki/Battleship_(game))a
-When entering the game the user will be asked to provide their name, once submitted the user and computers boards will be displayed.
-Both boards will contain 5 rows and 5 columns, on the players board there are 4 ships, indicated with "@".
-The computers ships are hidden from the user, since showing them would defeat the object of the game.
-Users are then able to choose a row and a column to try to hit the computers ships, and the computer is assigned random coordinates to try and hit the users ships.
-All guesses that misses a ship are indicated with "X" on the boards, and any hit on a ship is indicated with "*". 
-After each round, the result of the round is printed to the terminal, together with the current scores.
-This is followed by a question being displayed asking the user if they wish to continue, restart or quit the game completely.
-A hit increases the scores by 1, and the first one to reach a score of 4 wins the game.
-This is because a score of 4 means that all enemy ships have been hit, and this will cause the game to restart. 
-If both user and computer hit their opponents last ship simultaneously, the game is a draw and will start over.
+- The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedi](https://en.wikipedia.org/wiki/Battleship_(game))a
+- When entering the game the user will be asked to provide their name, once submitted the user and computers boards will be displayed.
+- Both boards will contain 5 rows and 5 columns, on the players board there are 4 ships, indicated with "@".
+- The computers ships are hidden from the user, since showing them would defeat the object of the game.
+- Users are then able to choose a row and a column to try to hit the computers ships, and the computer is assigned random coordinates to try and hit the users ships.
+- All guesses that misses a ship are indicated with "X" on the boards, and any hit on a ship is indicated with "*". 
+- After each round, the result of the round is printed to the terminal, together with the current scores.
+- This is followed by a question being displayed asking the user if they wish to continue, restart or quit the game completely.
+- A hit increases the scores by 1, and the first one to reach a score of 4 wins the game.
+- This is because a score of 4 means that all enemy ships have been hit, and this will cause the game to restart. 
+- If both user and computer hit their opponents last ship simultaneously, the game is a draw and will start over.
 
 ## Features
 Random Board generation

@@ -3,7 +3,7 @@ The Battleship Game is a game that runs in the Python terminal window, which run
 Users can practice their Battleships skills against a computer.
 
 ## How to play
-- The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedi](https://en.wikipedia.org/wiki/Battleship_(game))a
+- The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
 - When entering the game the user will be asked to provide their name, once submitted the user and computers boards will be displayed.
 - Both boards will contain 5 rows and 5 columns, on the players board there are 4 ships, indicated with "@".
 - The computers ships are hidden from the user, since showing them would defeat the object of the game.

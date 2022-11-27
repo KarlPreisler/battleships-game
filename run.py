@@ -111,9 +111,6 @@ def random_point(size):
     return randint(0, size - 1)
 
 
-# Add Score counting function
-# add function for calculating winner
-
 def count_scores(scores, player_board, computer_board):
     """ Function to check if all ships are hit on a board
     and display who is the winner, if both player and computer

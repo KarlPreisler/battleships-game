@@ -30,10 +30,10 @@ Random Board generation
 - Data is maintained in class instances. 
 
 ## Data Model
-I used a Board class as my model in order to create two class instances to hold both the player's and computer's board.
-The Board class stores the board size, number of ships, positions of the ships, type of board, name of board and the guesses by the player and the computer.
-The class also contains methods for the logic of the game, such as a print method to print out current board, a validate method to validate user input, add_ship 
-method to add ships to the board, as well as add_guess method to add guesses and return a result. This class also contains the guesses and ships list. 
+- I used a Board class as my model in order to create two class instances to hold both the player's and computer's board.
+- The Board class stores the board size, number of ships, positions of the ships, type of board, name of board and the guesses by the player and the computer.
+- The class also contains methods for the logic of the game, such as a print method to print out current board, a validate method to validate user input, add_ship 
+- method to add ships to the board, as well as add_guess method to add guesses and return a result. This class also contains the guesses and ships list. 
 
 ## Testing
 - I have confirmed that the game functions as it should in the Python terminal.

@@ -153,8 +153,8 @@ def make_guess(board):
             ship_column = input("Guess a column: ")
             print("-" * 37)
 
-            if (
-(not board.valid_row(ship_row) or not board.valid_column(ship_column))):
+            if (not board.valid_row(ship_row)
+                    or not board.valid_column(ship_column)):
                 print("Error: No letters allowed! Enter a number between 0-4")
 
             elif board.point_empty(ship_row, ship_column):
@@ -213,8 +213,10 @@ def play_game(computer_board, player_board):
         display_boards(computer_board, player_board)
         display_scores(player_board)
 
+        # Provide player with option to restart or quit after each round
         resume_option = input('Press "Q" to quit the game, "R" to restart \
-the game or any other button to continue to the next round\n')
+the game or "Enter" to continue to the next round\n')
+        print("-" * 37)
         if resume_option.upper() == "Q":
             sys.exit("You quit the game")
         elif resume_option.upper() == "R":
@@ -234,15 +236,15 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
     print("\nWelcome to the Battleship Game!")
-    print(f"\nBoard Size is {size}. Number of Ships are {num_ships}")
-    print("\nTop left corner is row: 0, col: 0")
+    print(f"\nBoard Size is {size}. Number of ships are {num_ships}")
+    print("\nThe top left corner is row: 0, column: 0")
     print("-" * 37)
     print("Legend:\n")
     print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
     # Ask for users name, validate that input is a string between 1-20 letters.
     while True:
         player_name = input('\nEnter your name: ').capitalize()
-        if player_name.isalpha() and len(player_name) > 1 < 20:
+        if player_name.isalpha() and len(player_name) >= 1 < 21:
             break
         else:
             print("Error: Please provide a valid name")
@@ -260,4 +262,5 @@ def new_game():
     play_game(computer_board, player_board)
 
 
-new_game()
+if __name__ == "__main__":
+    new_game()

@@ -23,10 +23,10 @@ Random Board generation
 - Keep track of scores
 - Determine winner 
 - Input Validation
--- Name input must be a string of letters between 1-20 letters.
--- Row and column guesses must be a number.
--- Warning message if player guess is outside of grid.
--- Users cannot guess the same coordinates twice.
+- Name input must be a string of letters between 1-20 letters.
+- Row and column guesses must be a number.
+- Warning message if player guess is outside of grid.
+- Users cannot guess the same coordinates twice.
 - Data is maintained in class instances. 
 
 ## Data Model
@@ -44,6 +44,9 @@ method to add ships to the board, as well as add_guess method to add guesses and
 
 ## Bugs
 - There are no unfixed bugs.
+
+## Validator Testing
+- PEP8: 
 
 ## Deployment 
 This project was deployed using Code Institute's mock terminal for Heroku.

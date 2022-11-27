@@ -114,6 +114,25 @@ def random_point(size):
 # Add Score counting function
 # add function for calculating winner
 
+def count_scores(scores, player_board, computer_board):
+    """ Function to check if all ships are hit on a board
+    and display who is the winner, if both player and computer
+    hit last ship in the same round it will display that its a draw
+    """
+    # Checks if player and computer lost their last ship in same round
+    if scores["player"] == computer_board.num_ships and \
+       scores["computer"] == player_board.num_ships:
+        print("It's a draw! Both teams lost all ships.")
+        # Start a new game once winner is dislayed
+        new_game()
+    elif scores["player"] == computer_board.num_ships:
+        print("You are the winner! All enemy ships are hit.")
+        new_game()
+    elif scores["computer"] == player_board.num_ships:
+        print("You lost! All your ships are hit.\n")
+        print("-" * 37)
+        new_game()
+
 
 def populate_board(board):
     """
@@ -212,6 +231,7 @@ def play_game(computer_board, player_board):
 
         display_boards(computer_board, player_board)
         display_scores(player_board)
+        count_scores(scores, player_board, computer_board)
 
         # Provide player with option to restart or quit after each round
         resume_option = input('Press "Q" to quit the game, "R" to restart \

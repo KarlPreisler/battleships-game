@@ -215,9 +215,9 @@ def play_game(computer_board, player_board):
 
         resume_option = input('Press "Q" to quit the game, "R" to restart \
 the game or any other button to continue to the next round\n')
-        if resume_option == "Q":
-            sys.exit("Quitting game")
-        elif resume_option == "R":
+        if resume_option.upper() == "Q":
+            sys.exit("You quit the game")
+        elif resume_option.upper() == "R":
             new_game()
 
 

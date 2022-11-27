@@ -1,4 +1,4 @@
-""" 
+"""
 This file contains all code to play the battleships game
 against the computer in the terminal window.
 """
@@ -125,9 +125,12 @@ def populate_board(board):
     board.add_ship(ship_row, ship_column)
 
 
-def display_scores():
+def display_scores(player_board):
     """ Prints the scores after each round """
-    print(f'player scores: {scores["player"]} computer scores: {scores["computer"]}')
+    print("The scores are\n")
+    print(f"{player_board.name}: {scores['player']} Computer: \
+{scores['computer']}")
+    print("-" * 37)
 
 
 def make_guess(board):
@@ -150,7 +153,8 @@ def make_guess(board):
             ship_column = input("Guess a column: ")
             print("-" * 37)
 
-            if (not board.valid_row(ship_row) or not board.valid_column(ship_column)):
+            if (
+(not board.valid_row(ship_row) or not board.valid_column(ship_column))):
                 print("Error: No letters allowed! Enter a number between 0-4")
 
             elif board.point_empty(ship_row, ship_column):
@@ -207,7 +211,7 @@ def play_game(computer_board, player_board):
             print("Computer missed the target")
 
         display_boards(computer_board, player_board)
-        display_scores()
+        display_scores(player_board)
 
 
 def new_game():

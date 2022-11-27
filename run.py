@@ -125,6 +125,11 @@ def populate_board(board):
     board.add_ship(ship_row, ship_column)
 
 
+def display_scores():
+    """ Prints the scores after each round """
+    print(f'player scores: {scores["player"]} computer scores: {scores["computer"]}')
+
+
 def make_guess(board):
     """
     Function to get user guess and append it to guesses list,
@@ -185,7 +190,7 @@ def play_game(computer_board, player_board):
         # Define if computer got a hit or miss on player's board
         if computer_board.guess(ship_row, ship_column) == "Hit":
             print(f"{player_board.name} hit the target!")
-
+            scores["player"] += 1
         elif computer_board.guess(ship_row, ship_column) == "Miss":
             print(f"{player_board.name} missed the target")
 
@@ -197,10 +202,12 @@ def play_game(computer_board, player_board):
         # Define if player got a hit or miss on computer's board
         if player_board.guess(int(ship_row), int(ship_column)) == "Hit":
             print("Computer hit the target!")
+            scores["computer"] += 1
         elif player_board.guess(ship_row, ship_column) == "Miss":
             print("Computer missed the target")
 
         display_boards(computer_board, player_board)
+        display_scores()
 
 
 def new_game():

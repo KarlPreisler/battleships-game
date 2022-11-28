@@ -135,7 +135,6 @@ def populate_board(board):
     """
     Function to add ships to board and append to ships list
     """
-
     ship_row = random_point(board.size)
     ship_column = random_point(board.size)
     board.add_ship(ship_row, ship_column)
@@ -232,8 +231,8 @@ def play_game(computer_board, player_board):
 
         # Provide player with option to restart or quit after each round
         resume_option = input(
-            'Press "Q" to quit the game, "R" to restart the '
-            'game or "Enter" to continue to the next round\n'
+            "Press 'Q' to quit the game, 'R' to restart the "
+            "game or 'Enter' to continue to the next round\n"
         )
         print("-" * 37)
         if resume_option.upper() == "Q":
@@ -261,7 +260,7 @@ def new_game():
     print("\nThe bottom right corner is row: 4, column: 4")
     print("-" * 37)
     print("Legend:\n")
-    print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
+    print("'@' = Players ship\n'X' = Already guessed\n'*' = A ship was hit")
     # Ask for users name, validate that input is a string between 1-20 letters.
     while True:
         player_name = input('\nEnter your name: \n').capitalize()

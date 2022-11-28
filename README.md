@@ -73,7 +73,7 @@ Random Board generation
 - There are no unfixed bugs.
 
 ## Validator Testing
-- PEP8: 
+- PEP8: All code passes the PEP8 Validator without any errors. 
 
 ## Deployment 
 This project was deployed using Code Institute's mock terminal for Heroku.

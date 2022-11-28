@@ -265,7 +265,7 @@ def new_game():
             break
         else:
             print("Error: Please provide a valid name")
-            print("Provide any alphbetical combination between 1-20")
+            print("Provide any alphabetical combination between 1-20")
 
     # Creates class instances for computer and player
     computer_board = Board(size, num_ships, "Computer", type="computer")

@@ -5,11 +5,20 @@ Users can practice their Battleships skills against a computer.
 ## How to play
 - The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
 - When entering the game the user will be asked to provide their name, once submitted the user and computers boards will be displayed.
+
+![Screenshot_20221128_010211](https://user-images.githubusercontent.com/114813115/204273765-99c29d07-b2ce-489c-ac07-f46a367f6f01.png)
+
 - Both boards will contain 5 rows and 5 columns, on the players board there are 4 ships, indicated with "@".
+
+![Screenshot_20221128_010254](https://user-images.githubusercontent.com/114813115/204273865-3555bf43-603f-42bf-ae57-bf827aac3bff.png)
+
 - The computers ships are hidden from the user, since showing them would defeat the object of the game.
 - Users are then able to choose a row and a column to try to hit the computers ships, and the computer is assigned random coordinates to try and hit the users ships.
 - All guesses that misses a ship are indicated with "X" on the boards, and any hit on a ship is indicated with "*". 
 - After each round, the result of the round is printed to the terminal, together with the current scores.
+
+![Screenshot_20221128_010318](https://user-images.githubusercontent.com/114813115/204274007-f43a1396-354f-4b9f-b03e-c08bd77ce347.png)
+
 - This is followed by a question being displayed asking the user if they wish to continue, restart or quit the game completely.
 - A hit increases the scores by 1, and the first one to reach a score of 4 wins the game.
 - This is because a score of 4 means that all enemy ships have been hit, and this will cause the game to restart. 
@@ -47,8 +56,14 @@ Random Board generation
 - I have confirmed that the game functions as it should in the Code Institute Heroku terminal.
 - I have confirmed that the terminal output is clear in terms of readability.
 - I have made sure that the program does not crash because of invalid user input.
-- I have made sure that all error messages clearly explains the given issue and provides a solution for the user.
 
+![Screenshot_20221128_010415](https://user-images.githubusercontent.com/114813115/204274218-623113c7-e35c-4094-96c2-582f64fbad90.png)
+
+- I have made sure that all error messages clearly explains the given issue and provides a solution for the user.
+- 
+![Screenshot_20221128_010438](https://user-images.githubusercontent.com/114813115/204274265-59c27e5d-f20b-4018-8d93-215cfd08cc2b.png)
+
+## Further Testing
 ![PP3 Mockup](https://user-images.githubusercontent.com/114813115/204272317-35dda2a7-f7e4-4008-a296-5ccfec17f9fe.png)
 
 ## Bugs

@@ -165,8 +165,8 @@ def make_guess(board):
                 return ship_row, ship_column
 
         elif board.type == "player":
-            ship_row = input("Guess a row: ")
-            ship_column = input("Guess a column: ")
+            ship_row = input("Guess a row: \n")
+            ship_column = input("Guess a column: \n")
             print("-" * 37)
 
             if (not board.valid_row(ship_row)
@@ -260,7 +260,7 @@ def new_game():
     print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
     # Ask for users name, validate that input is a string between 1-20 letters.
     while True:
-        player_name = input('\nEnter your name: ').capitalize()
+        player_name = input('\nEnter your name: \n').capitalize()
         if player_name.isalpha() and len(player_name) >= 1 < 21:
             break
         else:

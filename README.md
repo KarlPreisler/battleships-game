@@ -29,6 +29,13 @@ Random Board generation
 - Users cannot guess the same coordinates twice.
 - Data is maintained in class instances. 
 
+## Future Features
+- Let users choose the size of the grid.
+- Let users choose the number of ships on each board.
+- Let users choose the locations for their ships.
+- Allow ships to be larger than 1x1.
+
+
 ## Data Model
 - I used a Board class as my model in order to create two class instances to hold both the player's and computer's board.
 - The Board class stores the board size, number of ships, positions of the ships, type of board, name of board and the guesses by the player and the computer.
@@ -41,6 +48,8 @@ Random Board generation
 - I have confirmed that the terminal output is clear in terms of readability.
 - I have made sure that the program does not crash because of invalid user input.
 - I have made sure that all error messages clearly explains the given issue and provides a solution for the user.
+
+![PP3 Mockup](https://user-images.githubusercontent.com/114813115/204272317-35dda2a7-f7e4-4008-a296-5ccfec17f9fe.png)
 
 ## Bugs
 - There are no unfixed bugs.

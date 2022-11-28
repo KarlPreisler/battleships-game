@@ -3,6 +3,7 @@ The Battleship Game is a game that runs in the Python terminal window, which run
 Users can practice their Battleships skills against a computer.
 
 [Here is the live version of my project.](https://thebattleships-game.herokuapp.com/)
+![Screenshot_20221128_015907](https://user-images.githubusercontent.com/114813115/204283826-bca83c4b-a898-4f69-b3df-4716d6f9d5e2.png)
 
 ## How to play
 - The Battleships game is a classic game usually played with pen and paper. Here is a link that further explains the game on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))

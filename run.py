@@ -231,11 +231,14 @@ def play_game(computer_board, player_board):
         count_scores(scores, player_board, computer_board)
 
         # Provide player with option to restart or quit after each round
-        resume_option = input('Press "Q" to quit the game, "R" to restart \
-the game or "Enter" to continue to the next round\n')
+        resume_option = input(
+            'Press "Q" to quit the game, "R" to restart the '
+            'game or "Enter" to continue to the next round\n'
+        )
         print("-" * 37)
         if resume_option.upper() == "Q":
-            sys.exit("You quit the game")
+            print("You quit the game")
+            sys.exit(0)
         elif resume_option.upper() == "R":
             new_game()
 

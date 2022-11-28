@@ -253,8 +253,9 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
     print("\nWelcome to the Battleship Game!")
-    print(f"\nBoard Size is {size}. Number of ships are {num_ships}")
+    print(f"\nBoard Size is 5. Number of ships are {num_ships}")
     print("\nThe top left corner is row: 0, column: 0")
+    print("\nThe bottom right corner is row: 4, column: 4")
     print("-" * 37)
     print("Legend:\n")
     print('"@" = Players ship\n"X" = Already guessed\n"*" = A ship was hit')
